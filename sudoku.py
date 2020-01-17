@@ -70,8 +70,11 @@ class Sudoku:
         dout    = self.resolve(din)
         print('\n'*12)
 
-        print('Output:')
-        print(self.get_show_text(dout))
+        if dout == False:
+            print('Process Failed!')
+        else:
+            print('Output:')
+            print(self.get_show_text(dout))
 
 
 # Main
@@ -82,7 +85,7 @@ for op, val in opts:
     if op == '-i':
         fname   = val
     elif op == '-s':
-        speed   = val
+        speed   = int(val)
 
 din     = [[0]*9, [0]*9, [0]*9, [0]*9, [0]*9, [0]*9, [0]*9, [0]*9, [0]*9]
 with open(fname, 'r') as fp:
